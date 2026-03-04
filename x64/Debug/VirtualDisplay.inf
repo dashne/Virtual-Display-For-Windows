@@ -1,0 +1,74 @@
+;
+; VirtualDisplay.inf
+;
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=Display
+ClassGuid={4D36E968-E325-11CE-BFC1-08002BE10318}
+ClassVer= 2.0
+Provider=%ManufacturerName%
+DriverVer = 06/20/2025,2.40.41.711
+CatalogFile=VirtualDisplay.cat
+PnpLockdown=1
+
+[Manufacturer]
+%ManufacturerName%=Standard,NTamd64.10.0...22000
+
+[Standard.NTamd64.10.0...22000]
+%DeviceName%=MyDevice_Install, Root\VirtualDisplay
+%DeviceName%=MyDevice_Install, VirtualDisplay      
+
+
+[SourceDisksFiles]
+VirtualDisplay.dll=1
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[MyDevice_Install.NT]
+Include=WUDFRD.inf
+Needs=WUDFRD.NT
+CopyFiles=UMDriverCopy
+
+[MyDevice_Install.NT.hw]
+Include=WUDFRD.inf
+Needs=WUDFRD.NT.HW
+AddReg = MyDevice_HardwareDeviceSettings
+
+[MyDevice_HardwareDeviceSettings]
+HKR,, "UpperFilters",  %REG_MULTI_SZ%, "IndirectKmd"
+HKR, "WUDF", "DeviceGroupId", %REG_SZ%, "IddSampleDriverGroup"
+
+[MyDevice_Install.NT.Services]
+Include=WUDFRD.inf
+Needs=WUDFRD.NT.Services
+
+[MyDevice_Install.NT.Wdf]
+UmdfService=VirtualDisplay,VirtualDisplay_Install
+UmdfServiceOrder=VirtualDisplay
+UmdfKernelModeClientPolicy = AllowKernelModeClients
+
+[VirtualDisplay_Install]
+UmdfLibraryVersion=2.25.0
+ServiceBinary=%12%\UMDF\VirtualDisplay.dll
+UmdfExtensions = IddCx0102
+
+;This template is supported for OS version 17763 (Windows 10 version 1809) and after.
+;For Windows OS prior to Windows 10 1809 set DefaultDestDir = 12
+[DestinationDirs]
+;DefaultDestDir = 13
+UMDriverCopy=12,UMDF ; copy to drivers\umdf
+
+
+[UMDriverCopy]
+VirtualDisplay.dll
+
+
+[Strings]
+ManufacturerName="<IMS134>" ;TODO: Replace with your manufacturer name
+DiskName="VirtualDisplay Source Disk"
+DeviceName="VirtualDisplay"
+
+REG_MULTI_SZ  = 0x00010000
+REG_SZ        = 0x00000000

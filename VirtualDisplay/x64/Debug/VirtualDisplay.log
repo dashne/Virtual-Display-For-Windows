@@ -1,0 +1,30 @@
+﻿  Building 'VirtualDisplay' with toolset 'WindowsUserModeDriver10.0' and the 'Universal' target platform.
+  Stamping x64\Debug\VirtualDisplay.inf
+  Stamping [Version] section with DriverVer=06/20/2025,2.40.41.711
+  Direct3DDevice.cpp
+  Driver.cpp
+  IndirectAdapter.cpp
+  IndirectDeviceContext.cpp
+  IndirectMonitorContext.cpp
+  SwapChainProcessor.cpp
+  Generating Code...
+     Creating library J:\programmingVs\2026\VirtualDisplay\VirtualDisplay\x64\Debug\VirtualDisplay.lib and object J:\programmingVs\2026\VirtualDisplay\VirtualDisplay\x64\Debug\VirtualDisplay.exp
+  VirtualDisplay.vcxproj -> J:\programmingVs\2026\VirtualDisplay\VirtualDisplay\x64\Debug\VirtualDisplay.dll
+  Done Adding Additional Store
+  Successfully signed: J:\programmingVs\2026\VirtualDisplay\VirtualDisplay\x64\Debug\VirtualDisplay.dll
+  
+  Driver is 'Universal'.
+  ........................
+  Signability test complete.
+  
+  Errors:
+  None
+  
+  Warnings:
+  None
+  
+  Catalog generation complete.
+  J:\programmingVs\2026\VirtualDisplay\VirtualDisplay\x64\Debug\VirtualDisplay\virtualdisplay.cat
+  Done Adding Additional Store
+  Successfully signed: J:\programmingVs\2026\VirtualDisplay\VirtualDisplay\x64\Debug\VirtualDisplay\virtualdisplay.cat
+  
